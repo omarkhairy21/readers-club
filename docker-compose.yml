@@ -1,0 +1,30 @@
+version: "2"
+services:
+  server:
+    build: ./server
+    ports:
+      - 4000:4000
+    volumes:
+      - /usr/src/app/node_modules
+      - ./server:/usr/src/app
+
+    environment:
+      - PORT=4000
+    networks:
+      - readersclub
+
+  client:
+    build: ./client
+    ports:
+      - 3000:3000
+    volumes:
+      - /usr/src/app/node_modules
+      - ./client:/usr/src/app
+    depends_on:
+      - server
+    environment:
+      - PORT=3000
+    networks:
+      - readersclub
+networks:
+  readersclub:
