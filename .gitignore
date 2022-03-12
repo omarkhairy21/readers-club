@@ -38,3 +38,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+#nest
+server/dist
+
+# Tests
+server/coverage
+server/.nyc_output
